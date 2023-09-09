@@ -7,7 +7,7 @@ double Bid;
 void TworzenieTablicDlaPozycji(); // prototype function
 void OtwarciePozycjiBuy();
 void OtwarciePozyjiSell();
-test
+
 
 void OnStart()
 {

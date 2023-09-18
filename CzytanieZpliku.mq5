@@ -12,21 +12,21 @@ void OtwarciePozyjiSell();
 void OnStart()
 {
 
-bool EURUSDSELL[20];                       // dawanie wartosci false dla konkretnej waluty   
+bool EURUSDSELL[120];                       // dawanie wartosci false dla konkretnej waluty   
 TworzenieTablicDlaPozycji(EURUSDSELL);     // wartosc tablic musi byc taka sama jak "ZapisWszystkichDanych"
-bool EURUSDBUY[20];                        
+bool EURUSDBUY[120];                        
 TworzenieTablicDlaPozycji(EURUSDBUY);
-bool GBPUSDBUY[20];
+bool GBPUSDBUY[120];
 TworzenieTablicDlaPozycji(GBPUSDBUY);
-bool GBPUSDSELL[20];
+bool GBPUSDSELL[120];
 TworzenieTablicDlaPozycji(GBPUSDSELL);
-bool USDCADBUY[20];
+bool USDCADBUY[120];
 TworzenieTablicDlaPozycji(USDCADBUY);
-bool USDCADSELL[20];
+bool USDCADSELL[120];
 TworzenieTablicDlaPozycji(USDCADSELL);
-bool USDCHFBUY[20];
+bool USDCHFBUY[120];
 TworzenieTablicDlaPozycji(USDCHFBUY);
-bool USDCHFSELL[20];
+bool USDCHFSELL[120];
 TworzenieTablicDlaPozycji(USDCHFSELL);
 
    while(!IsStopped())                                                           // user decide when program should be close, now program starts each 10 seconds 
@@ -36,8 +36,8 @@ TworzenieTablicDlaPozycji(USDCHFSELL);
         {
             
             Print("Poczatek Programu \n\n");
-            string ZapisWszystkichDanych[20];                                                  // create an array for each variable in the file 
-            string ZapisWalutyIKupna[20];                                           // creat an array for position
+            string ZapisWszystkichDanych[120];                                                  // create an array for each variable in the file 
+            string ZapisWalutyIKupna[120];                                           // creat an array for position
             for (int i = 0; i < ArraySize(ZapisWszystkichDanych) - 1; i++)                     // 
             {       
                
@@ -56,7 +56,8 @@ TworzenieTablicDlaPozycji(USDCHFSELL);
                OtwarciePozyjiSell(0.01,"GBPUSD",0.0,0.0,0.0,"",GBPUSDSELL[i],ZapisWalutyIKupna[i],"GBP/USDSELL");
                OtwarciePozyjiBuy(0.01,"USDCAD",0.0,0.0,0.0,"",USDCADBUY[i],ZapisWalutyIKupna[i],"USD/CADBUY");
                OtwarciePozyjiSell(0.01,"USDCAD",0.0,0.0,0.0,"",USDCADSELL[i],ZapisWalutyIKupna[i],"USD/CADSELL");
-               
+               OtwarciePozyjiBuy(0.01,"USDCHF",0.0,0.0,0.0,"",USDCHFBUY[i],ZapisWalutyIKupna[i],"USD/CHFBUY");
+               OtwarciePozyjiSell(0.01,"USDCHF",0.0,0.0,0.0,"",USDCHFSELL[i],ZapisWalutyIKupna[i],"USD/CHFSELL");
              }
 
             FileClose(file_handle);                                              // Close file
